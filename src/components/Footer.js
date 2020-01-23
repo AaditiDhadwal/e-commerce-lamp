@@ -10,16 +10,16 @@ const Footer = () => {
               <strong>About</strong>
               <br />
             </p>
-            <span className="text-primary">Privacy</span>
+            <span className="text-orange">Privacy</span>
             <br />
-            <span className="text-primary">Terms</span>
+            <span className="text-orange">Terms</span>
           </div>
           <div className="col-md-4">
             <p>
               <strong>Services</strong>
               <br />
             </p>
-            <span className="text-primary">Our product</span>
+            <span className="text-orange">Our product</span>
           </div>
           <div className="col-md-4">
             <p>
@@ -28,15 +28,17 @@ const Footer = () => {
             </p>
             <i className="fab fa-twitter">
               {' '}
-              <span className="text-primary pr-2">Twitter</span>
+              <span className="text-orange pl-2">Twitter</span>
             </i>
+            <br />
             <i className="fab fa-facebook">
               {' '}
-              <span className="text-primary pr-2">Facebook</span>
+              <span className="text-orange pl-2">Facebook</span>
             </i>
+            <br />
             <i className="fas fa-envelope">
               {' '}
-              <span className="text-primary font-weight-light">Email</span>
+              <span className="text-orange font-weight-light pl-2">Email</span>
             </i>
           </div>
         </div>

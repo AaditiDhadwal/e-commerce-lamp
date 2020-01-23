@@ -1,18 +1,31 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import logo from '../assets/images/logo.svg';
+import {
+  PATH_REGISTER,
+  PATH_LAMP_LIST,
+  PATH_ROOT,
+  PATH_CART
+} from './constants/index';
 
 const Header = () => {
   return (
     <>
       <nav
-        className="navbar navbar-expand-sm fixed-top shadow-sm bg-white rounded"
+        className="navbar navbar-expand-md fixed-top shadow-sm bg-white navbar-light rounded"
         id="main-nav"
       >
         <div className="container">
-          <img src={logo} alt="logo" className="img fluid" />
-          <h6 className="float-right mt-3">
-            <strong>Starter Store</strong>
+          <h6 className="float-right mt-3" id="heading">
+            <NavLink
+              className="text-black"
+              to={PATH_LAMP_LIST}
+              activeClassName="active"
+            >
+              <img src={logo} alt="logo" className="img fluid" />
+              <strong>Starter Store</strong>
+            </NavLink>
           </h6>
           <button
             className="navbar-toggler"
@@ -24,19 +37,34 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarCollapse">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item active">
-                <span className="nav-link text-black">Sign up</span>
+              <li className="nav-item">
+                <NavLink
+                  className="text-black"
+                  to={PATH_REGISTER}
+                  activeClassName="active"
+                >
+                  Sign up
+                </NavLink>
               </li>
               <li className="nav-item">
-                <a href="#explore-head-section" className="nav-link text-black">
+                <NavLink
+                  className="text-black"
+                  exact
+                  to={PATH_ROOT}
+                  activeClassName="active"
+                >
                   Sign in
-                </a>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <a href="#create-head-section" className="nav-link text-black">
+                <NavLink
+                  className="text-black"
+                  to={PATH_CART}
+                  activeClassName="active"
+                >
                   <i className="fas fa-shopping-cart" />
-                  &nbsp;Cart(0)
-                </a>
+                  &nbsp;Cart (0)
+                </NavLink>
               </li>
             </ul>
           </div>

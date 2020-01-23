@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 
-const Login = () => {
+const Register = () => {
   return (
     <section id="account">
       <div className="container pb-4">
@@ -10,13 +10,17 @@ const Login = () => {
 
         <form className="border rounded p-3">
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="name">Name</label>
             <input
-              type="email"
+              type="text"
               className="form-control"
-              placeholder="Email"
+              placeholder="Name"
               autoFocus
             />
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input type="email" className="form-control" placeholder="Email" />
           </div>
           <div className="form-group">
             <label htmlFor="password">Password</label>
@@ -27,7 +31,7 @@ const Login = () => {
             />
           </div>
           <button className="btn btn-default" type="submit">
-            Login
+            Register
           </button>
         </form>
       </div>
@@ -36,4 +40,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
