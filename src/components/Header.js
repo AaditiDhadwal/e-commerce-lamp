@@ -7,13 +7,13 @@ import {
   PATH_LAMP_LIST,
   PATH_ROOT,
   PATH_CART
-} from './constants/index';
+} from '../constants/index';
 
 const Header = () => {
   return (
     <>
       <nav
-        className="navbar navbar-expand-md fixed-top shadow-sm bg-white navbar-light rounded"
+        className="navbar navbar-expand-md shadow-sm bg-white navbar-light rounded"
         id="main-nav"
       >
         <div className="container">

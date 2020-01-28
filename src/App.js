@@ -7,7 +7,7 @@ import {
   PATH_LAMP_LIST,
   PATH_LAMP_DETAILS,
   PATH_CART
-} from './components/constants/index';
+} from './constants/index';
 import Header from './components/Header';
 import Register from './components/Register';
 import Footer from './components/Footer';
