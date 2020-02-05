@@ -44,7 +44,7 @@ export default function List() {
     return (
       <div className="row mb-5">
         {oddSection.map(field => (
-          <div className="col-md-6 mb-2" key={field.id}>
+          <div className="col-md-6 mb-4" key={field.id}>
             <div
               className="card shadow-sm bg-white rounded"
               onClick={() =>
@@ -68,7 +68,7 @@ export default function List() {
           </div>
         ))}
         {evenSection.map(field => (
-          <div className="col-md-6 mb-2" key={field.id}>
+          <div className="col-md-6 mb-4" key={field.id}>
             <div
               className="card shadow-sm bg-white rounded"
               onClick={() =>

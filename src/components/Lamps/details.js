@@ -1,14 +1,19 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable no-restricted-syntax */
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useParams, useHistory } from 'react-router';
 
 import { getLampDetails } from '../Api/LampApi';
 import PageLoader from '../../common/PageLoader';
+import { PATH_CART } from '../../constants';
 
 export default function Details() {
   const [isLoading, setIsLoading] = useState(null);
   const [detailData, setdetailData] = useState({});
+  const history = useHistory();
   const { id } = useParams();
+  let getQuantity = '';
 
   const getDetailData = () => {
     setIsLoading(true);
@@ -22,7 +27,6 @@ export default function Details() {
     if (isLoading === null) {
       getDetailData(id);
     }
-    console.log(detailData, 'blah');
   }, [isLoading, detailData, id]);
 
   function generateAttributes() {
@@ -31,16 +35,20 @@ export default function Details() {
       // eslint-disable-next-line no-prototype-builtins
       if (detailData.lamp_attributes.hasOwnProperty(key)) {
         fields.push(
-          <>
+          <React.Fragment key={key}>
             <tr>
               <td className="text-capitalize">{key}</td>
               <td>{detailData.lamp_attributes[key]}</td>
             </tr>
-          </>
+          </React.Fragment>
         );
       }
     }
     return fields;
+  }
+
+  function getQntyDetails(event) {
+    getQuantity = event.target.value;
   }
 
   return (
@@ -74,9 +82,21 @@ export default function Details() {
                     type="number"
                     className="form-control"
                     placeholder="Quantity"
+                    onChange={event => getQntyDetails(event)}
                   />
-                  <div className="input-group-append">
-                    <span className="input-group-text">
+                  <div
+                    className="input-group-append"
+                    onClick={() =>
+                      history.push({
+                        pathname: PATH_CART,
+                        state: { data: detailData, qnty: getQuantity }
+                      })
+                    }
+                  >
+                    <span
+                      className="input-group-text"
+                      style={{ cursor: 'pointer' }}
+                    >
                       <i className="fas fa-shopping-cart" /> &nbsp;Add to Cart
                     </span>
                   </div>

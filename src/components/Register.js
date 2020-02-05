@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-autofocus */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 
@@ -11,12 +10,7 @@ const Register = () => {
         <form className="border rounded p-3">
           <div className="form-group">
             <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Name"
-              autoFocus
-            />
+            <input type="text" className="form-control" placeholder="Name" />
           </div>
           <div className="form-group">
             <label htmlFor="email">Email</label>
