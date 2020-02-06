@@ -1,6 +1,8 @@
+/* eslint-disable no-undef */
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import $ from 'jquery';
 
 import logo from '../assets/images/logo.svg';
 import {
@@ -33,7 +35,16 @@ hr {
 `;
 
 export default function Header() {
-  const [theme, setTheme] = useState({ mode: 'dark' });
+  localStorage.setItem('theme', localStorage.getItem('theme') || 'light');
+  const [theme, setTheme] = useState({
+    mode: localStorage.getItem('theme') || 'light'
+  });
+
+  function saveTheme() {
+    localStorage.setItem('theme', theme.mode === 'light' ? 'dark' : 'light');
+    console.log(localStorage.getItem('theme'));
+    setTheme(theme.mode === 'dark' ? { mode: 'light' } : { mode: 'dark' });
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -95,22 +106,12 @@ export default function Header() {
                   </NavLink>
                 </li>
               </ul>
-              <label className="switch m-0" htmlFor="checkbox">
-                <input
-                  type="checkbox"
-                  id="checkbox"
-                  onClick={() =>
-                    setTheme(
-                      theme.mode === 'dark'
-                        ? { mode: 'light' }
-                        : { mode: 'dark' }
-                    )
-                  }
-                />
-                <span className="slider round" />
-              </label>
             </div>
           </div>
+          <label className="switch m-0" htmlFor="checkbox">
+            <input type="checkbox" id="checkbox" onClick={() => saveTheme()} />
+            <span className="slider round" />
+          </label>
         </nav>
       </>
     </ThemeProvider>
