@@ -12,8 +12,23 @@ import {
 
 const GlobalStyle = createGlobalStyle`
 body {
-  background-color: ${props => (props.theme.mode === 'dark' ? '#111' : '#fff')};
+  background-color: ${props =>
+    props.theme.mode === 'dark' ? '#151111' : '#fff'};
   color: ${props => (props.theme.mode === 'dark' ? '#fff' : '#111')};
+}
+hr {
+  border-top: ${props =>
+    props.theme.mode === 'dark' ? '1px solid #696969b8' : ''};
+}
+.table tr  {
+  color: ${props => (props.theme.mode === 'dark' ? '#fff' : '')};
+}
+
+.table th  {
+  color: ${props => (props.theme.mode === 'dark' ? '#000' : '')};
+}
+.card .card-body {
+  color: ${props => (props.theme.mode === 'dark' ? '#000' : '')};
 }
 `;
 

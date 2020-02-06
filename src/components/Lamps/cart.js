@@ -20,7 +20,6 @@ export default function Cart() {
         localStorage.setItem('cart', JSON.stringify(cart));
       }
     }
-    console.log(localStorage.getItem('cart'));
   }, [history.location.state]);
   return (
     <>
