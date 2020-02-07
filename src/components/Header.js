@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
-import $ from 'jquery';
 
 import logo from '../assets/images/logo.svg';
 import {
@@ -31,6 +30,9 @@ hr {
 }
 .card .card-body {
   color: ${props => (props.theme.mode === 'dark' ? '#000' : '')};
+}
+.fa-shopping-cart {
+  color: ${props => (props.theme.mode === 'dark' ? '#f2711c' : '')};
 }
 `;
 
@@ -109,7 +111,13 @@ export default function Header() {
             </div>
           </div>
           <label className="switch m-0" htmlFor="checkbox">
-            <input type="checkbox" id="checkbox" onClick={() => saveTheme()} />
+            <input
+              type="checkbox"
+              id="checkbox"
+              onClick={() => saveTheme()}
+              checked={localStorage.getItem('theme') === 'dark'}
+              readOnly
+            />
             <span className="slider round" />
           </label>
         </nav>

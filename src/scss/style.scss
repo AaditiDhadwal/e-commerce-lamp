@@ -1,13 +1,15 @@
+@import './variable.scss';
+
 .text-orange {
-  color: #f2711c !important;
+  color: $orange;
 }
 
 .bg-grey {
-  background-color: #f2f2f2;
+  background-color: $light-grey;
 }
 
 .bg-black {
-  background-color: black;
+  background-color: $black;
 }
 
 #main-nav img {
@@ -24,7 +26,7 @@
   text-align: center;
   width: 100px;
   top: -18px;
-  color: black !important;
+  color: $black !important;
   padding: 29px 15px 28px 15px;
 }
 
@@ -33,14 +35,14 @@
 }
 
 #account .btn {
-  background-color: #f2711c;
-  color: #fff;
+  background-color: $orange;
+  color: $white;
 }
 
 #navbarCollapse a:hover,
 #heading a:hover {
   text-decoration: none;
-  color: #f2711c;
+  color: $orange;
 }
 
 #lamp img#logo {
@@ -52,7 +54,7 @@
 }
 
 #lamp .card-header {
-  background-color: #f2f2f2;
+  background-color: $light-grey;
   border-bottom: 0;
 }
 
@@ -63,14 +65,15 @@
 #lamp-details small {
   background-color: #e8e8e8;
   color: #00000099;
-  font-size: 11px;
+  font-size: $e-small-f-size;
   padding: 5px;
   font-weight: bold;
 }
 
 #lamp-details .input-group-append .input-group-text {
-  background-color: #f2711c;
-  color: #fff;
+  background-color: $orange;
+  color: $white;
+  border: 1px solid $orange;
 }
 
 #cart img {
@@ -119,24 +122,24 @@
 }
 
 input:checked + .slider {
-  background-color: #ccc;
+  background-color: $grey;
 }
 
 input:checked + .slider:before {
   content: '\f186';
   font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  font-size: 25px;
-  color: #fff;
+  font-weight: $font-w-900;
+  font-size: $extra-large-f-size;
+  color: $white;
   margin-bottom: 6px;
 }
 
 input + .slider:before {
   content: '\f185';
   font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  color: #fff908;
-  font-size: 25px;
+  font-weight: $font-w-900;
+  color: $yellow;
+  font-size: $extra-large-f-size;
   margin-bottom: 6px;
 }
 
@@ -172,13 +175,13 @@ input:checked + .slider:before {
     width: 200px;
     height: 100px;
     position: relative;
-    border-bottom: 1px solid #f2f2f2;
+    border-bottom: 1px solid $light-grey;
   }
 
   #navbarCollapse a.active:after,
   #heading a.active:after {
     content: '';
-    border-color: #f2f2f2 transparent transparent transparent;
+    border-color: $light-grey transparent transparent transparent;
     border-style: solid;
     border-width: 12px;
     width: 0;
@@ -188,23 +191,23 @@ input:checked + .slider:before {
     left: 37%;
   }
   #navbarCollapse a.active {
-    background-color: #f2f2f2;
+    background-color: $light-grey;
     margin-bottom: -36px;
     text-align: center;
     top: 0 !important;
     width: 100px;
     top: -18px;
-    color: #f2711c !important;
+    color: $orange !important;
   }
 
   #heading a.active {
-    background-color: #f2f2f2;
+    background-color: $light-grey;
     margin-bottom: -36px;
     text-align: center;
     top: 0 !important;
     width: 100px;
     top: -18px;
-    color: #f2711c !important;
+    color: $orange !important;
     padding-bottom: 25px;
   }
 }
