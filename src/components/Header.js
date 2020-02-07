@@ -1,5 +1,3 @@
-/* eslint-disable func-names */
-/* eslint-disable no-unused-expressions */
 /* eslint-disable no-undef */
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';

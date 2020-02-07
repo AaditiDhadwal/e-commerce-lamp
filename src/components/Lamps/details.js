@@ -1,11 +1,8 @@
-/* eslint-disable radix */
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable no-undef */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable no-undef */
 /* eslint-disable no-restricted-syntax */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useParams, useHistory } from 'react-router';
 
 import { getLampDetails } from '../Api/LampApi';
@@ -22,19 +19,19 @@ export default function Details() {
   const { id } = useParams();
   let getQuantity = '';
 
-  const getDetailData = () => {
+  const getDetailData = useCallback(() => {
     setIsLoading(true);
     getLampDetails(id).then(data => {
       setdetailData(data);
       setIsLoading(false);
     });
-  };
+  }, [id]);
 
   useEffect(() => {
     if (isLoading === null) {
       getDetailData(id);
     }
-  }, [isLoading, detailData, id]);
+  }, [isLoading, detailData, getDetailData, id]);
 
   function generateAttributes() {
     const fields = [];
