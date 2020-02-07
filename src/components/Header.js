@@ -1,3 +1,5 @@
+/* eslint-disable func-names */
+/* eslint-disable no-unused-expressions */
 /* eslint-disable no-undef */
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
@@ -44,7 +46,6 @@ export default function Header() {
 
   function saveTheme() {
     localStorage.setItem('theme', theme.mode === 'light' ? 'dark' : 'light');
-    console.log(localStorage.getItem('theme'));
     setTheme(theme.mode === 'dark' ? { mode: 'light' } : { mode: 'dark' });
   }
 
@@ -103,7 +104,8 @@ export default function Header() {
                     <span
                       className={theme.mode === 'dark' ? 'text-orange' : ''}
                     >
-                      &nbsp;Cart (0)
+                      &nbsp;Cart (
+                      {JSON.parse(localStorage.getItem('cart')).length})
                     </span>
                   </NavLink>
                 </li>

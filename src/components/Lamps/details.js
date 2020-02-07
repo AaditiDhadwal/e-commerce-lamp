@@ -1,3 +1,7 @@
+/* eslint-disable radix */
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-undef */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable no-restricted-syntax */
@@ -11,6 +15,9 @@ import { PATH_CART } from '../../constants';
 export default function Details() {
   const [isLoading, setIsLoading] = useState(null);
   const [detailData, setdetailData] = useState({});
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem('cart')) || []
+  );
   const history = useHistory();
   const { id } = useParams();
   let getQuantity = '';
@@ -51,6 +58,14 @@ export default function Details() {
     getQuantity = event.target.value;
   }
 
+  function getLampQnty(data, qnty) {
+    const prevCartDetails = cart;
+    prevCartDetails.push({ detail: data, quantity: qnty });
+    setCart(prevCartDetails);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    history.push(PATH_CART);
+  }
+
   return (
     <>
       {isLoading ? (
@@ -86,12 +101,7 @@ export default function Details() {
                   />
                   <div
                     className="input-group-append"
-                    onClick={() =>
-                      history.push({
-                        pathname: PATH_CART,
-                        state: { data: detailData, qnty: getQuantity }
-                      })
-                    }
+                    onClick={() => getLampQnty(detailData, getQuantity)}
                   >
                     <span
                       className="input-group-text"
@@ -106,7 +116,7 @@ export default function Details() {
             <h4>About this product</h4>
             <p>{detailData.lamp_description}</p>
             <hr />
-            <table className="rounded table table-bordered table-responsive-sm">
+            <table className="rounded table table-bordered table-responsive-xs">
               <thead className="bg-grey">
                 <tr>
                   <th colSpan="2">Attributes</th>
